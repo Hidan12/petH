@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "nombre": "pedigree adulto",
+    "tipo_mascota": "perro",
+    "marca": "Pedigree",
+    "edad": "adulto",
+    "descripcion": "comida para joshua",
+    "categoria": "alimento",
+    "precio": "89250",
+    "descuento": "15",
+    "img": "/img/product/product1674091313054.png"
+  },
+  {
+    "id": 2,
+    "nombre": "proplan",
+    "tipo_mascota": "gato",
+    "categoria": "Alimentos",
+    "marca": "purina",
+    "descripcion": "comida",
+    "precio": "1230000",
+    "descuento": "20",
+    "img": "/img/product/product1674107634342.png"
+  },
+  {
+    "id": 3,
+    "nombre": "proplan",
+    "tipo_mascota": "gato",
+    "categoria": "Snacks",
+    "marca": "purina",
+    "descripcion": "para",
+    "precio": "123131",
+    "descuento": "20",
+    "img": "/img/product/product1674107894092.png"
+  }
+]

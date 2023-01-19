@@ -1,0 +1,25 @@
+[
+  {
+    "categoria": "categoria",
+    "titulo": "Alimentos",
+    "img": "/img/categoria_alimento-min.png"
+  },
+  {
+    "categoria": "categoria",
+    "titulo": "Snacks",
+    "img": "/img/categoria_snacks-min.png"
+  },
+  {
+    "categoria": "tipo_mascota",
+    "titulo": "perro"
+  },
+  {
+    "categoria": "tipo_mascota",
+    "titulo": "gato"
+  },
+  {
+    "categoria": "tipo_mascota",
+    "titulo": "caballo"
+  }
+
+]

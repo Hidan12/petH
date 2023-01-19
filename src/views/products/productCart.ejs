@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PetHouse</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/29d377923f.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+<body>
+
+<%- include('../partial/header')%>
+<main class="cart">
+   <div class="containerCart">
+   	   <div class="header">
+   	   	<p class="title">Carrito de compras</h3>
+   	   	<p class="action">Ultimos agregados</h5>
+   	   </div>
+
+   	   <div class="item">
+   	   	  <div class="imgBox">
+   	   	  	<img src="/img/proplan-esterilizado.png">
+   	   	  </div>
+   	   	  <div class="aboutItem">
+   	   	  	<p class="itemTitle">Urinary gatos adultos</p>
+   	   	  	<p class="itemSubtitle">Proplan</p>
+            <div class = "itemAmount">
+                <label for="quantity">Cantidad:</label>
+                    <select id="quantity" name="quantity">
+                        <option selected="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="4">5</option>
+                        <option value="4">6</option>
+                        <option value="4">7</option>
+                        <option value="4">8</option>
+                        <option value="4">9</option>
+                        <option value="4">10</option>
+                    </select>
+            </div>
+            <p class="itemRating">4.7/5 <i class="fas fa-star"></i> </p>
+   	   	  </div>
+   	   	  <div class="price">
+            <div class="amountDiscount">$9.99</div>
+   	   	  	<div class="amount">$2.99</div>
+   	   	  	<div class="save"><u>Guardar</u></div>
+   	   	  	<div class="remove"><u>Eliminar</u></div>
+   	   	  </div>
+   	   </div>
+
+   	   <div class="item">
+        <div class="imgBox">
+            <img src="/img/pedigree-adulto.png">
+        </div>
+        <div class="aboutItem">
+            <p class="itemTitle">Concentrado Adultos</p>
+            <p class="itemSubtitle">Pedigree</p>
+    <div class = "itemAmount">
+        <label for="quantity">Cantidad:</label>
+            <select id="quantity" name="quantity">
+                <option selected="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="4">5</option>
+                <option value="4">6</option>
+                <option value="4">7</option>
+                <option value="4">8</option>
+                <option value="4">9</option>
+                <option value="4">10</option>
+            </select>
+    </div>
+    <p class="itemRating">4.7/5 <i class="fas fa-star"></i> </p>
+        </div>
+        <div class="price">
+            <div class="amount">$2.99</div>
+            <div class="save"><u>Guardar</u></div>
+            <div class="remove"><u>Eliminar</u></div>
+        </div>
+  </div>
+
+    <div class="checkout">
+   	    <div class="total">
+   	 	<div>
+   	 		<div class="Subtotal">Subtotal</div>
+   	 		<div class="items">2 items</div>
+   	 	</div>
+   	 	<div class="total-amount">$5.98</div>
+   	 </div>
+   	 <button class="button">Proceder al pago</button></div>
+   </div>
+</main>
+<%- include('../partial/footer')%>
+</body>
+</html>

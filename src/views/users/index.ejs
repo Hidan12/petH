@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partial/head')%>
+<body>
+    <%- include('../partial/header')%>
+    <main class="home">
+        <div class="iWhatsapp">
+            <i class="fa fa-whatsapp  fa-2x"></i>
+        </div>
+        <section>  
+            <h3>Ofertas</h3>
+            <div class="ofertas">
+                <div class="flecha">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </div>
+                <% for(let i = 0; i < product.length; i++){%>
+                    <article>
+                        <img src=<%=product[i].img%> alt="">
+                        <div>
+                            <p><%= product[i].marca %></p>
+                            <p> Precio $ <%= product[i].precio %></p>
+                                
+                        </div>
+                    </article>
+                <%}%>
+                <div class="flecha">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h3>Categorias</h3>
+            <div class="categoria">
+                <div class="flecha">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </div>
+                <%for (let i = 0; i < category.length; i++){%>
+                    <article>
+                        <img src=<%=category[i].img%> alt="">
+                        <p> <%=category[i].titulo%></p>
+                    </article>
+                <%}%>
+                <div class="flecha">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </div>
+        </section>
+    </main>
+    <%- include('../partial/footer')%>
+    
+</body>
+</html>

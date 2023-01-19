@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../partial/head")%>
+    <body>
+        <%- include("../partial/header")%>
+    <main class ="product">
+        
+        <form action= <%= actions %>  method="post" enctype="multipart/form-data">
+            <section>
+                <article>
+                    <% for(let n in box){%>
+                        <% if(n != "categoria" && n != "tipo_mascota" && n != "id" && n != "img") {%>
+                            <div>
+                                <label for="<%=n%>"><%=n%> del producto</label>
+                                <input type="text" name="<%=n%>" id="<%=n%>" value=<%if(type == "edit"){%><%= box[n] %><%}%> >
+                            </div>    
+                        <% } %>  
+                    <% } %> 
+                </article>
+                <article>
+                    <label for="imagenProducto">Seleccione una imagen del producto:</label>
+                    <input type="file" name="imagenProducto" id="imagenProducto">
+                </article>
+                <article class="check">
+                    <div>
+                        <h3>Categoria</h3>
+                        <% category.forEach(cat => {%>
+                            <div>
+                                <label for="<%- cat.titulo %>"><%= cat.titulo %></label>
+                                <input type="checkbox" name="<%= cat.categoria %>" id="<%= cat.titulo %>" value="<%= cat.titulo %>" <% if(type == "edit" && box.categoria.includes(cat.titulo)) {%> checked<% } %> >
+                            </div>
+                        <%}); %> 
+                    </div>
+                    <div>
+                        <h3>Tipo de mascota</h3>
+                        
+                        <% typeOfPets.forEach(cat => {%>
+                            
+                            <div>
+                                <label for="<%- cat.titulo %>"><%= cat.titulo %></label>
+                                <input type="checkbox" name="<%= cat.categoria %>" id="<%= cat.titulo %>" value="<%= cat.titulo %>" <% if(type == "edit" && box.tipo_mascota.includes(cat.titulo)) {%> checked<% } %> >
+                            </div>
+                        <%}); %> 
+                    </div> 
+                </article>
+                <div>
+                    <button type="submit">editar</button>
+                </div>
+            </section>
+        </form>
+    </main>
+    <%- include("../partial/footer")%>
+    </body>
+</html>
