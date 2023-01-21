@@ -209,11 +209,66 @@ footer .btns button{
 
 
 /* Forms Login and Register */
+.login{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(1, 232, 147, 1);
+}
+.login form{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(39, 58, 245, 0.1);
+    width: 74%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.login form h3{
+    text-align: center;
+}
 
+.login form section article{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.login form section article input{
+    position: absolute;
+    border-radius: 15px;
+    height: 30px;
+}
+.login form section .icon{
+    position: relative;
+    left: 72px;
+    top: 8px;
+}
 
-
-
-
+.login form .subBotones{
+    display: flex;
+    flex-direction: column;
+}
+.login form .subBotones div{
+    display: flex;
+    font-size: 16px;
+    width: 84%;
+    justify-content: center;
+}
+.login form .subBotones button{
+    border: none;
+    background: none;
+}
+.login form .submit{
+    display: flex;
+    justify-content: center;
+}
+.login form .submit button{
+    width: 97px;
+    height: 40px;
+    font-size: 21px;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 
 /* estilos createProduct */
 
@@ -270,6 +325,8 @@ footer .btns button{
 .product form .deleteProduct picture img{
     width: 70%;
 }
+
+
 @media (min-width: 500px){
     header section .barra .logo{
         margin-left: 15px;
