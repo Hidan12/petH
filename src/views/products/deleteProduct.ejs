@@ -9,16 +9,17 @@
     <section>
         <article>
             <div>
-                <label for="nombreProducto">Nombre del producto:</label>
-                <input type="text" name="name_product" id="nombreProducto"  value="<%=pro.nombre_producto%>">
+                <h3>Nombre del producto:</h3>
+                <h4><%=pro.nombre%></h4>
+                
             </div>
             <div>
-                <label for="marca">Marca del producto:</label>
-                <input type="text" name="marca" id="marca" value="<%=pro.marca%>">
+                <h3>Marca del producto:</h3>
+                <h4><%=pro.marca%></h4>
             </div>
             <div>
-                <label for="descripcion">Descripción sobre el producto:</label>
-                <input type="text" name="descripcion" id="descripcion" value="<%=pro.descripcion%>">
+                <h3>Descripción sobre el producto:</h3>
+                <h4><%=pro.descripcion%></h4>
             </div>
         </article>
 
@@ -29,39 +30,36 @@
 
         <article>
             <div>
-                <label for="precio">Precio del producto:</label>
-                <input type="text" name="precio" id="precio" value="<%=pro.precio%>">
+                <h3>Precio del producto:</h3>
+                <h4><%=pro.precio%></h4>
             </div>
             <div>
-                <label for="descuento">descuento</label>
-                <input type="text" name="descuento" id="descuento" value="<%=pro.descuento%>">
+                <h3>Descuento: </h3>
+                <h4><%=pro.descuento%>%</h4>
             </div>
         </article>
         
         <article class="check">
             <div>
                 <h3>Categoria</h3>
-                <div>
-                    <label for="alimento">Alimento</label>
-                    <input type="checkbox" name="articulo" id="alimento">
-                </div>
+                <% category.forEach(cat => {%>
                     <div>
-                        <label for="snack">snack</label>
-                        <input type="checkbox" name="articulo" id="snack">
+                        <label for="<%- cat.titulo %>"><%= cat.titulo %></label>
+                        <input type="checkbox" name="<%= cat.categoria %>" id="<%= cat.titulo %>" value="<%= cat.titulo %>" <% if(pro.categoria.includes(cat.titulo)) {%> checked<% } %> >
                     </div>
+                <%}); %> 
             </div>
-            
             <div>
-                <h3>seleccione la mascota</h3>
-                <div>
-                    <label for="perro">Perro</label>
-                    <input type="checkbox" name="mascota" id="perro">
-                </div>
-                <div>
-                    <label for="gato">Gato</label>
-                    <input type="checkbox" name="mascota" id="gato">
-                </div>
-            </div>
+                <h3>Tipo de mascota</h3>
+                
+                <% typeOfPets.forEach(cat => {%>
+                    
+                    <div>
+                        <label for="<%- cat.titulo %>"><%= cat.titulo %></label>
+                        <input type="checkbox" name="<%= cat.categoria %>" id="<%= cat.titulo %>" value="<%= cat.titulo %>" <% if(pro.tipo_mascota.includes(cat.titulo)) {%> checked<% } %> >
+                    </div>
+                <%}); %> 
+            </div> 
         </article>
         
         <div class="button">

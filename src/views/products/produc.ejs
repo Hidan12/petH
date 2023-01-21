@@ -19,6 +19,10 @@
                 </article>
                 <article>
                     <label for="imagenProducto">Seleccione una imagen del producto:</label>
+                    
+                    <% if(type == "edit") {%>
+                        <picture class="img"><img src="<%=box.img%> " alt=""></picture>    
+                    <% } %>
                     <input type="file" name="imagenProducto" id="imagenProducto">
                 </article>
                 <article class="check">

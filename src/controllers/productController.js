@@ -32,7 +32,6 @@ const productController = {
         if(!req.file){
             return res.send("no se cargo ninguna imagen por favor regrese al formulario y carge una imagen")
         };
-        console.log(req.body);
         let newProduct = {
             id: id,
             nombre: req.body.nombre,
@@ -52,9 +51,7 @@ const productController = {
     },
     editProduct: (req, res) =>{
         const idProduct = req.params.idProduct;
-        const producto = product.find( p => p.id == idProduct)
-        
-        
+        const producto = product.find( p => p.id == idProduct && !p.borrado)
         if(producto){
             res.render("./products/produc", {
                 title:"editProduct",
@@ -71,9 +68,6 @@ const productController = {
     modifyProduct: (req, res) =>{
         const idProduct = req.params.idProduct;
         const modify = product.find(m => m.id == idProduct);
-        console.log("joshua prro",req.body);
-        console.log("v2");
-        console.log(req.body.nombre);
         if (req.body.nombre) modify.nombre = req.body.nombre;
         if (req.body.tipo_mascota)modify.tipo_mascota = req.body.tipo_mascota;
         if (req.body.marca)modify.marca = req.body.marca;
@@ -82,7 +76,6 @@ const productController = {
         if (req.body.precio) modify.precio = req.body.precio;
         if (req.body.descuento) modify.descuento = req.body.descuento;
         if (req.file) modify.img = "/img/product/" + req.file.filename
-        console.log("paso");
     
         fs.writeFileSync(rutaProduct, JSON.stringify(product, null, 2));
         res.send(modify);
@@ -90,24 +83,24 @@ const productController = {
     },
     deleteProduct: (req, res) =>{
         const idProduct = req.params.idProduct;
-        const producto = product.find( p => p.id == idProduct)
+        const producto = product.find( p => p.id == idProduct && !p.borrado)
         
         if(producto){
-            res.render("./products/deleteProduct", {pro:producto, title:"borrarProduct"});
+            res.render("./products/deleteProduct", {
+                pro: producto, 
+                category: category.filter( c => c.categoria == "categoria"), 
+                typeOfPets: category.filter( c => c.categoria == "tipo_mascota"),
+                title:"borrarProduct"
+            });
         }else{
                 res.send("Producto no encontrado")
             }
     },
     delete: (req, res) =>{
         const idProduct = req.params.idProduct;
-        const prod = product.find(p => p.id == idProduct);
-        const rutaImg = path.join(__dirname, "../../public",prod.img);
-        const productoEliminado = product.filter( p => p.id != idProduct);
-        fs.unlink(rutaImg, (err) => {
-            if (err) throw err;
-            console.log("File deleted!");
-        })
-        fs.writeFileSync(rutaProduct, JSON.stringify(productoEliminado, null, 2));
+        const productoEliminado = product.find( p => p.id == idProduct);
+        productoEliminado.borrado = true;
+        fs.writeFileSync(rutaProduct, JSON.stringify(product, null, 2));
         res.redirect("/");
     },
 }

@@ -1,15 +1,15 @@
 [
   {
     "id": 1,
-    "nombre": "pedigree adulto",
+    "nombre": "pedigree",
     "tipo_mascota": "perro",
     "marca": "Pedigree",
     "edad": "adulto",
-    "descripcion": "comida para joshua",
-    "categoria": "alimento",
+    "descripcion": "comida",
+    "categoria": "Alimentos",
     "precio": "89250",
     "descuento": "15",
-    "img": "/img/product/product1674091313054.png"
+    "img": "/img/product/product1674273251877.png"
   },
   {
     "id": 2,
@@ -17,20 +17,21 @@
     "tipo_mascota": "gato",
     "categoria": "Alimentos",
     "marca": "purina",
-    "descripcion": "comida",
+    "descripcion": "comida para gato",
     "precio": "1230000",
     "descuento": "20",
-    "img": "/img/product/product1674107634342.png"
+    "img": "/img/product/product1674273380525.png",
+    "borrado": true
   },
   {
     "id": 3,
     "nombre": "proplan",
     "tipo_mascota": "gato",
-    "categoria": "Snacks",
+    "categoria": "Alimentos",
     "marca": "purina",
-    "descripcion": "para",
+    "descripcion": "para  gato castrado",
     "precio": "123131",
     "descuento": "20",
-    "img": "/img/product/product1674107894092.png"
+    "img": "/img/product/product1674273413392.png"
   }
 ]
