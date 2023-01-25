@@ -1,140 +1,38 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/29d377923f.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/styles.css">
-    <title>Register</title>
-    
+    <%- include('../partial/head')%>
 </head>
 <body>
-    <header>
-        <section>
-            <div class="barra">
-                <div class="boton">
-                    <button><i class="fas fa-bars"></i></button>                  
-                </div>
-                <picture class="logo">
-                    <a href="/"><img src="/img/logo.png"></a>
-                </picture>
-                <div class="boton">
-                    <a href="/productCart"><button><i class="fas fa-cart-plus"></i></button></a>  
-                </div>
-            </div>
-            <div class="buscador">
-                <input type="text" placeholder="producto a buscar">
-                <button><i class="fas fa-search"></i></button>
-            </div>
-        </section>
-        <nav>
-            <ul>
-                <li><a href="">Ofertas</a></li>
-                <li><a href="">Tiendas Oficiales</a></li>
-                <li><a href="">Ayuda</a></li>
-            </ul>
-            <ul>
-                <li><a href="/register">Creá tu cuenta<i class="far fa-address-card"></i></a></li>
-                <li><a href="/login">Ingresá<i class="fas fa-sign-in-alt"></i></a></li>
-                <li><a href="/productCart">Mis compras<i class="fas fa-cart-plus"></i></a></li>
-            </ul>
-        </nav>
-        <section class="animal">
-            <h3>Animales</h3>
-            <div>
-                <button>perro <i class="fa-solid fa-dog"></i></button>
-                <button>gato <i class="fa-solid fa-cat"></i></button>
-            </div>
-        </section>
-    </header>
-    <main class="forms">
-        <h3>Regístrate</h3>
-
-        <section class="formulario">
-    <div>
-            <form action="/register" method="post">
-            
-            <!-- Username -->
-            <article>
-            <div>
-                <label for="nombre">Nombre y apellido: </label>
-                <input class="inputNombre" type="Nombre" id="nombre" placeholder="Nombre y apellido" name="nombre"> 
-            </div>
-            </article>
-
-            <!-- Fecha de nacimiento-->
-            <article>
-                <div>
-                    <label for="nacimiento">Fecha de nacimiento: </label>
-                    <input type="date" id="FechaNacimiento" placeholder="Fecha de nacimiento" name="fecha">
-                </div>
-            </article>
-
-            <!-- Dirección -->
-            <article>
-                <div>
-                    <label for="Domicilio">Domicilio</label>
-                    <input type="domicilio" id="domicilio" placeholder="Domicilio" name="domicilio">
-                </div>
+    <%- include('../partial/header')%>
+    <main class="register">
+        <form action="/register" method="post">
+            <section>
+                <article>
+                    <input type="text" name="frist_name" placeholder="nombre">
+                    <input type="text" name="last_name" placeholder="apellido">
                 </article>
-
-             <!-- Contraseña -->
-             <article>
-             <div>
-                <label for="contrasenia">Contraseña</label>
-                <input type="password" id="contrasenia" placeholder="Contraseña" name="contrasenia">                
-            </div>
-            </article>
-            <article>
-            <div>
-                <label for="contrasenia">Confirmar contraseña</label>
-                <input type="password" id="contrasenia" placeholder="Contraseña" name="contrasenia">                
-            </div>
-            </article>  
+                <article>
+                    <input type="text" name="direction" placeholder="direccion">
+                    <input type="text" name="town" placeholder="ciudad">
+                </article>
+                <article>
+                    <input type="email" name="email" placeholder="email">
+                    <input type="number" name="phone_contact" placeholder="N° de contacto">
+                </article>
+                <article>
+                    <input type="password" name="pasword" placeholder="contraseña">
+                    <input type="password" name="repet_pasword" placeholder="repetir contraseña">
+                </article>
+                <article>
+                    <button type="submit">crear cuenta</button>
+                </article>
+            </section>
             
-            <article>
-                <div class=" politicas">
-                    <label >
-                        <input type="checkbox" >
-                        <option>He leído y acepto las políticas de privacidad</option>
-                    </label>
-                </div>
-            </article>
 
-           <!-- Botón de enviar -->
-           <article>
-            <div>
-                <button><label for="botonEnviar"><a href="/">Enviar</a></label></button>
-            </div>
-        </article>
-          
-            
-        </form>       
-    </div>
+        </form>
 
     </main>
-    <footer>
-        <img class="logo" src="/img/logo.png">
-        <article>
-            <p>Nuestras redes</p>
-            <div class="icono">
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-youtube"></i>
-                <i class="fa-brands fa-twitter"></i>
-            </div>
-        </article>
-        <article class="btns">
-            <button>Sobre nosotros <i class="fa-solid fa-chevron-right"></i></button>
-            <button>Preguntas frecuentes <i class="fa-solid fa-chevron-right"></i></button>
-            <button>Informacion de contacto <i class="fa-solid fa-chevron-right"></i></button>
-        </article>
-        <article>
-            <p>Todos los derechos reservados - ® Pet House 2022</p>
-        </article>
-
-    </footer>
+    <%- include('../partial/footer')%>
 </body>
 </html>
