@@ -5,7 +5,9 @@ const methodOverride = require("method-override");
 
 const app = express();
 
+//capturar la informacion de un formulario que se envia por post
 app.use(express.urlencoded({extended:false}));
+
 app.use(express.json());
 app.use(methodOverride('_method'));
 app.use(express.static("public"));

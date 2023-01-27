@@ -33,5 +33,23 @@
     "precio": "123131",
     "descuento": "20",
     "img": "/img/product/product1674273413392.png"
+  },
+  {
+    "id": 4,
+    "nombre": "",
+    "marca": "",
+    "descripcion": "",
+    "precio": "",
+    "descuento": "",
+    "img": "/img/product/product1674769669260.png"
+  },
+  {
+    "id": 5,
+    "nombre": "",
+    "marca": "",
+    "descripcion": "",
+    "precio": "",
+    "descuento": "",
+    "img": "/img/product/product1674769973043.png"
   }
 ]

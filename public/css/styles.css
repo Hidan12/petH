@@ -5,6 +5,7 @@ body{
     
 }
 
+
 /*header*/
 header{
     background-image:  linear-gradient(rgba(39, 58, 245, 0.8), rgba(1, 232, 147, 1)), url("/img/huellitas.png");
@@ -294,10 +295,20 @@ footer .btns button{
     margin-bottom: 10px;
 }
 .register form section article input{
+    border: none;
+    font-family: 'Cinzel', serif;
     height: 25px;
     margin-bottom: 5px;
     margin-top: 5px;
-    border-radius: 15px;
+    border-radius: 8px;
+}
+input::placeholder{
+    text-indent: 10px;
+    }
+.register form section article button{
+    font-size: 18px;
+    font-family: 'Cinzel', serif;
+    border-radius: 8px;
 }
 
 /* estilos createProduct */

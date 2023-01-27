@@ -45,7 +45,7 @@ const productController = {
             img: "/img/product/" + req.file.filename
         };
         product.push(newProduct);
-        console.log(newProduct);
+        
         fs.writeFileSync(rutaProduct, JSON.stringify(product, null, 2));
         res.redirect("/");
     },

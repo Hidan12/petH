@@ -8,22 +8,16 @@
     <main class="register">
         <form action="/register" method="post">
             <section>
-                <article>
-                    <input type="text" name="frist_name" placeholder="nombre">
-                    <input type="text" name="last_name" placeholder="apellido">
-                </article>
-                <article>
-                    <input type="text" name="direction" placeholder="direccion">
-                    <input type="text" name="town" placeholder="ciudad">
-                </article>
-                <article>
-                    <input type="email" name="email" placeholder="email">
-                    <input type="number" name="phone_contact" placeholder="N° de contacto">
-                </article>
-                <article>
-                    <input type="password" name="pasword" placeholder="contraseña">
-                    <input type="password" name="repet_pasword" placeholder="repetir contraseña">
-                </article>
+                <% for( let campo in box) { %>
+                    <article>
+                        <input type="<%= campo == 'password' || campo == "repeat_password" ? 'password' : 'text' %>" name="<%=campo%>" placeholder="<%= campo %>" <% if (locals.error && !error[campo]) { %> value="<%= box[campo]%>"<% } %>>
+                        <% if (locals.error && error[campo]) { %>
+                            <div class="error">
+                                <p><%= error[campo].msg %></p>
+                            </div>
+                            <% } %> 
+                    </article>
+                <% } %>
                 <article>
                     <button type="submit">crear cuenta</button>
                 </article>
