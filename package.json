@@ -1,25 +1,28 @@
 {
-  "name": "grupo-7-pethouse",
+  "name": "peth",
   "version": "1.0.0",
-  "description": "Este es el README del proyecto Pet House, aquí encontrarás cosas relacionadas a la temática del proyecto, páginas y otros proyectos que tomamos de inspiración, información técnica de instalación y tecnologías usadas entre otras cosas, espero que les sea útil.",
+  "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node ./src/app.js"
+    "start": "nodemon ./src/app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JuDroid/Grupo-7-PetHouse.git"
+    "url": "git+https://github.com/Hidan12/petH.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JuDroid/Grupo-7-PetHouse/issues"
+    "url": "https://github.com/Hidan12/petH/issues"
   },
-  "homepage": "https://github.com/JuDroid/Grupo-7-PetHouse#readme",
+  "homepage": "https://github.com/Hidan12/petH#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
+    "express-session": "^1.17.3",
     "express-validator": "^6.14.3",
     "method-override": "^3.0.0",
     "multer": "^1.4.5-lts.1",

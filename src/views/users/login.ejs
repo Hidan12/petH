@@ -7,14 +7,19 @@
         <form action="/login" method="post">
             <h3>ingresar</h3>
             <section>
+                <% if (locals.error) { %>
+                    <p><%= error.email ? error.email.msg :  error.msg%> </p>
+                <% } %>
+            </section>
+            <section>
                 <article>
-                    <input type="text" name="usuario" placeholder="usuario o mail">
+                    <input type="text" name="email" placeholder="mail">
                     <div class="icon">
                         <i class="fa-solid fa-right-to-bracket"></i>
                     </div>
                 </article>
                 <article>
-                    <input type="password" name="pasword" placeholder="contraseña">
+                    <input type="password" name="password" placeholder="contraseña">
                     <div class="icon">
                         <i class="fa-solid fa-unlock"></i>
                     </div>

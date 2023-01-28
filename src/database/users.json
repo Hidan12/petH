@@ -1,13 +1,14 @@
 [
   {},
   {
-    "frist_name": " martin",
-    "last_name": "vidan",
+    "id": 1,
+    "frist_name": "admin",
+    "last_name": "admin",
     "direction": "kr 32#58a-26",
     "town": "buenos airea",
     "email": "marcarfe12@gmail.com",
     "phone_contact": "24489578",
-    "password": "123"
+    "password": "$2a$10$64exGT6SD8NnBuDGK/57X.hjpnHTgBQU9PWJFPikjkrFP.nA11.Yu",
+    "type": "cliente"
   }
-  
 ]
