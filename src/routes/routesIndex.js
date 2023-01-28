@@ -8,14 +8,15 @@ const productController = require("../controllers/productController")
 //validaciones de express 
 const { body } = require("express-validator");
 
+// middleware
 const valit = require("../middlewares/validator");
-//const middlewareCookies = require("../middlewares/middlewareCookies");
+const middlewareCookies = require("../middlewares/middlewareCookies");
+const middlewareSession = require("../middlewares/middlewareSession")
 
 
 
 
 //tratamiento de archivos
-
 const multer = require('multer');
 const directorioImg = path.join(__dirname, "../../public/img/product")
 
@@ -42,23 +43,29 @@ const uploadFile = multer({storage});
 
 router.get("/" ,indexController.index);
 //login
-router.get("/login", indexController.login);
+router.get("/login", middlewareCookies, middlewareSession.active, indexController.login);
 router.post("/login", valit.login, indexController.inLogin)
+
 //registro
-router.get("/register", indexController.register);
+router.get("/register", middlewareCookies, middlewareSession.active, indexController.register);
 router.post("/register", valit.register, indexController.registerUpload);
+
 //producto en el carrito
 router.get("/productCart", productController.productCart);
+
 //detalles del producto
-router.get("/productDetail", productController.productDetail);
+router.get("/productDetail", middlewareCookies, productController.productDetail);
+
 //crear producto
 router.get("/createProduct", productController.createProduct);
 router.post("/createProduct", uploadFile.single('imagenProducto'), productController.create);
+
 //editar un producto
 router.get("/editProduct/:idProduct", productController.editProduct);
 router.put("/editProduct/:idProduct", uploadFile.single('imagenProducto'), productController.modifyProduct);
+
 //vorrar un producto
-router.get("/deleteProduct/:idProduct", productController.deleteProduct);
+router.get("/deleteProduct/:idProduct", middlewareCookies, productController.deleteProduct);
 router.delete("/deleteProduct/:idProduct", productController.delete);
 
 module.exports = router;

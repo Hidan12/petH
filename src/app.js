@@ -3,10 +3,10 @@ const path = require("path");
 const router = require("./routes/routesIndex")
 const methodOverride = require("method-override");
 const session = require("express-session")
-
+var cookieParser = require('cookie-parser');
 
 const app = express();
-
+app.use(cookieParser());
 //capturar la informacion de un formulario que se envia por post
 app.use(express.urlencoded({extended:false}));
 
@@ -16,7 +16,7 @@ app.use(express.json());
 //session
 app.use(session({
     secret : 'petH',
-    resave :false,
+    resave :true,
     saveUninitialized: true
 }));
 //para poder trabajar con metodos override (como por ej delete o put)

@@ -31,11 +31,6 @@ const baseRegister = {
 
 const indexController = {
     index: (req, res) =>{
-        
-        if (req.session.email != undefined) {
-            console.log("funciona");
-            //console.log(req.cookies.id);
-        }
         res.render("./users/index", {product: product, category: category.filter(p => p.categoria == "categoria"), title:"Pet House"});
     },
     login: (req, res) =>{
@@ -62,8 +57,12 @@ const indexController = {
         }else{ //si pasa las anteriores verificacion ingresa al sitio
             req.session.email = consultaBD.email;
             
-            //se crea una cooki para guardar el usuario para poder logearse de nuevo
-            res.cookie('id', consultaBD.id, {maxAge: 60 *  1000})
+            if (req.body.recordarPasword) {
+                //se crea una cooki para guardar el usuario para poder logearse de nuevo
+                res.cookie('email', consultaBD.email, {maxAge: 6000 *  1000})
+                console.log("entro al check");
+            }
+            
             
             res.redirect("/")
         }
