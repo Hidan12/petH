@@ -9,7 +9,7 @@
     "categoria": "Alimentos",
     "precio": "89250",
     "descuento": "15",
-    "img": "/img/product/product1674273251877.png"
+    "img": "product1674273251877.png"
   },
   {
     "id": 2,
@@ -20,7 +20,7 @@
     "descripcion": "comida para gato",
     "precio": "1230000",
     "descuento": "20",
-    "img": "/img/product/product1674273380525.png",
+    "img": "product1674273380525.png",
     "borrado": true
   },
   {
@@ -32,6 +32,6 @@
     "descripcion": "para  gato castrado",
     "precio": "123131",
     "descuento": "20",
-    "img": "/img/product/product1674273413392.png"
+    "img": "product1674273413392.png"
   }
 ]

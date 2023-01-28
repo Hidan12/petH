@@ -42,7 +42,7 @@ const productController = {
             categoria: req.body.categoria,
             precio: req.body.precio,
             descuento: req.body.descuento,
-            img: "/img/product/" + req.file.filename
+            img: req.file.filename
         };
         product.push(newProduct);
         
@@ -62,7 +62,7 @@ const productController = {
                 actions: "/editProduct/" + idProduct + "?_method=PUT"
             });
         }else{
-                res.send("Producto no encontrado")
+                res.render("./error/error", { title: "producto", box:  "no se encontro el producto que esta buscando", img: "sorpres.gif"})
             }
     },
     modifyProduct: (req, res) =>{

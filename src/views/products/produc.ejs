@@ -21,7 +21,7 @@
                     <label for="imagenProducto">Seleccione una imagen del producto:</label>
                     
                     <% if(type == "edit") {%>
-                        <picture class="img"><img src="<%=box.img%> " alt=""></picture>    
+                        <picture class="img"><img src="<%= "/img/product/" + box.img%> " alt=""></picture>    
                     <% } %>
                     <input type="file" name="imagenProducto" id="imagenProducto">
                 </article>

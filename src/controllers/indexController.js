@@ -59,7 +59,7 @@ const indexController = {
             
             if (req.body.recordarPasword) {
                 //se crea una cooki para guardar el usuario para poder logearse de nuevo
-                res.cookie('email', consultaBD.email, {maxAge: 6000 *  1000})
+                res.cookie('email', consultaBD.email, {maxAge: 60000 *  2})
                 console.log("entro al check");
             }
             

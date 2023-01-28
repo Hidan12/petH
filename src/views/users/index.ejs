@@ -15,7 +15,7 @@
                 </div>
                 <% for(let i = 0; i < product.length; i++){%>
                     <article>
-                        <img src=<%=product[i].img%> alt="">
+                        <img src=<%="/img/product/" + product[i].img%> alt="">
                         <div>
                             <p><%= product[i].marca %></p>
                             <p> Precio $ <%= product[i].precio %></p>
