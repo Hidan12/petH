@@ -301,10 +301,15 @@ footer .btns button{
     margin-bottom: 5px;
     margin-top: 5px;
     border-radius: 8px;
-}
-input::placeholder{
     text-indent: 10px;
-    }
+}
+.register form section article .error{
+    margin-top: -20px;
+    margin-bottom: -18px
+}
+.register form section article .error p{
+    color: red;
+}
 .register form section article button{
     font-size: 18px;
     font-family: 'Cinzel', serif;
