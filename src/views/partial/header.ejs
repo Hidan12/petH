@@ -23,8 +23,14 @@
             <li><i class="fa-solid fa-cat"></i><a href=""> </i>Gatos</a></li>
         </ul>
         <ul>
-            <li><a href="/register">Registrate<i class="far fa-address-card"></i></a></li>
-            <li><a href="/login">Ingresar<i class="fas fa-sign-in-alt"></i></a></li>
+            <% if (!locals.session) { %>
+                <li><a href="/register">Registrate<i class="far fa-address-card"></i></a></li>
+                <li><a href="/login">Ingresar<i class="fas fa-sign-in-alt"></i></a></li>
+            <% } else { %>
+                <li><a href="">Favoritos<i class="fa-regular fa-star"></i></a></li>
+            <% } %>
+             
+
             <li><a href="/productCart">Carrito<i class="fas fa-cart-plus"></i></a></li>
         </ul>
     </nav>

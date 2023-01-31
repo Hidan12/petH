@@ -31,7 +31,7 @@ const baseRegister = {
 
 const indexController = {
     index: (req, res) =>{
-        res.render("./users/index", {product: product, category: category.filter(p => p.categoria == "categoria"), title:"Pet House"});
+        res.render("./users/index", {session: req.session.email, product: product, category: category.filter(p => p.categoria == "categoria"), title:"Pet House"});
     },
     login: (req, res) =>{
         res.render("./users/login", {title:"Login"});
@@ -59,12 +59,11 @@ const indexController = {
             
             if (req.body.recordarPasword) {
                 //se crea una cooki para guardar el usuario para poder logearse de nuevo
-                res.cookie('email', consultaBD.email, {maxAge: 60000 *  2})
-                console.log("entro al check");
+                return res.cookie('email', consultaBD.email, {maxAge: 60000 *  2})
             }
             
             
-            res.redirect("/")
+            return res.redirect("/")
         }
     },
 
@@ -91,7 +90,7 @@ const indexController = {
             }
             users.push(newUser);
             fs.writeFileSync(rutaUsers, JSON.stringify(users, null, 2));
-            res.redirect("/");
+            return res.redirect("/");
         } 
     }
 };

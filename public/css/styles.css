@@ -34,6 +34,7 @@ header section .buscador{
     justify-content: center;
 }
 header section .buscador input{
+    font-family: 'Cinzel', serif;
     background-color: white;
     border: none;
     border-radius: 5px;
@@ -235,9 +236,12 @@ footer .btns button{
     margin-bottom: 30px;
 }
 .login form section article input{
+    border: none;
+    border-style: outset;
     position: absolute;
     border-radius: 15px;
     height: 30px;
+    text-indent: 10px;
 }
 .login form section .icon{
     position: relative;
@@ -303,12 +307,13 @@ footer .btns button{
     border-radius: 8px;
     text-indent: 10px;
 }
-.register form section article .error{
+/* .register form section article .error{
     margin-top: -20px;
     margin-bottom: -18px
-}
+} */
 .register form section article .error p{
     color: red;
+    margin: 0px;
 }
 .register form section article button{
     font-size: 18px;
@@ -397,6 +402,7 @@ footer .btns button{
         width: 10%;
     }
     header section .buscador input{
+        text-indent: 10px;
         width: 41vw;
         height: 25px;
     }
@@ -416,6 +422,7 @@ footer .btns button{
         padding: 5px;
     }
     header nav ul li a{
+        font-weight: bold;
         text-decoration: none;
         color: black;   
     }

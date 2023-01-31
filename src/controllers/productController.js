@@ -11,13 +11,13 @@ let category = JSON.parse(fs.readFileSync(rutaCategory));
 
 const productController = {
     productCart: (req, res) =>{
-        res.render("./products/productCart", {title:"productCart"});
+        return res.render("./products/productCart", {title:"productCart", session: req.session.email});
     },
     productDetail: (req, res) =>{
-        res.render("./products/productDetail", {title:"productDetail"});
+        return res.render("./products/productDetail", {title:"productDetail", session: req.session.email});
     },
     createProduct: (req, res) =>{
-        res.render("./products/produc", {
+        return res.render("./products/produc", {
             title:"createProduct",
             type:"create",
             box: product[0], 
@@ -47,22 +47,23 @@ const productController = {
         product.push(newProduct);
         
         fs.writeFileSync(rutaProduct, JSON.stringify(product, null, 2));
-        res.redirect("/");
+        return res.redirect("/");
     },
     editProduct: (req, res) =>{
         const idProduct = req.params.idProduct;
         const producto = product.find( p => p.id == idProduct && !p.borrado)
         if(producto){
-            res.render("./products/produc", {
+            return res.render("./products/produc", {
                 title:"editProduct",
                 type:"edit", 
                 box: producto, 
                 category: category.filter( c => c.categoria == "categoria"), 
                 typeOfPets: category.filter( c => c.categoria == "tipo_mascota"),
-                actions: "/editProduct/" + idProduct + "?_method=PUT"
+                actions: "/editProduct/" + idProduct + "?_method=PUT",
+                session: req.session.email
             });
         }else{
-                res.render("./error/error", { title: "producto", box:  "no se encontro el producto que esta buscando", img: "sorpres.gif"})
+                return res.render("./error/error", { title: "producto", box:  "no se encontro el producto que esta buscando", img: "sorpres.gif", session: req.session.email})
             }
     },
     modifyProduct: (req, res) =>{
@@ -78,7 +79,7 @@ const productController = {
         if (req.file) modify.img = "/img/product/" + req.file.filename
     
         fs.writeFileSync(rutaProduct, JSON.stringify(product, null, 2));
-        res.send(modify);
+        return res.send(modify);
         
     },
     deleteProduct: (req, res) =>{
@@ -86,14 +87,14 @@ const productController = {
         const producto = product.find( p => p.id == idProduct && !p.borrado)
         
         if(producto){
-            res.render("./products/deleteProduct", {
+            return res.render("./products/deleteProduct", {
                 pro: producto, 
                 category: category.filter( c => c.categoria == "categoria"), 
                 typeOfPets: category.filter( c => c.categoria == "tipo_mascota"),
                 title:"borrarProduct"
             });
         }else{
-                res.send("Producto no encontrado")
+                return res.send("Producto no encontrado")
             }
     },
     delete: (req, res) =>{
@@ -101,7 +102,7 @@ const productController = {
         const productoEliminado = product.find( p => p.id == idProduct);
         productoEliminado.borrado = true;
         fs.writeFileSync(rutaProduct, JSON.stringify(product, null, 2));
-        res.redirect("/");
+        return res.redirect("/");
     },
 }
 module.exports = productController;

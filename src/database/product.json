@@ -1,13 +1,13 @@
 [
   {
     "id": 1,
-    "nombre": "pedigree",
+    "nombre": "pedigree adulto",
     "tipo_mascota": "perro",
     "marca": "Pedigree",
     "edad": "adulto",
     "descripcion": "comida",
     "categoria": "Alimentos",
-    "precio": "89250",
+    "precio": "150",
     "descuento": "15",
     "img": "product1674273251877.png"
   },

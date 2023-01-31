@@ -16,6 +16,6 @@ function middlewareCookies(req, res, next) {
             req.session.email = consultaBD.email;
         }
     }
-    next()
+    next();
 }
 module.exports = middlewareCookies;

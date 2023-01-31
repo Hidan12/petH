@@ -61,7 +61,7 @@ router.get("/createProduct", productController.createProduct);
 router.post("/createProduct", uploadFile.single('imagenProducto'), productController.create);
 
 //editar un producto
-router.get("/editProduct/:idProduct", productController.editProduct);
+router.get("/editProduct/:idProduct", middlewareCookies, middlewareSession.checkIsActiveUser, productController.editProduct);
 router.put("/editProduct/:idProduct", uploadFile.single('imagenProducto'), productController.modifyProduct);
 
 //vorrar un producto
