@@ -41,7 +41,7 @@ const uploadFile = multer({storage});
 
 
 
-router.get("/" ,indexController.index);
+router.get("/", middlewareCookies, indexController.index);
 //login
 router.get("/login", middlewareCookies, middlewareSession.active, indexController.login);
 router.post("/login", valit.login, indexController.inLogin)

@@ -10,5 +10,16 @@
     "phone_contact": "24489578",
     "password": "$2a$10$64exGT6SD8NnBuDGK/57X.hjpnHTgBQU9PWJFPikjkrFP.nA11.Yu",
     "type": "cliente"
+  },
+  {
+    "id": "[object Object],[object Object]1",
+    "frist_name": "martin",
+    "last_name": "vidan",
+    "direction": "kr 32#58a-26",
+    "town": "buenos airea",
+    "email": "marcarfe@gmail.com",
+    "phone_contact": "24489578",
+    "password": "$2a$10$JQeAGL26YxygXbD2GLeSweNaWPOxVYQ46zUr51POiiH7vlaFTosSC",
+    "type": "cliente"
   }
 ]

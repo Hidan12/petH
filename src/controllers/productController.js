@@ -11,13 +11,14 @@ let category = JSON.parse(fs.readFileSync(rutaCategory));
 
 const productController = {
     productCart: (req, res) =>{
-        return res.render("./products/productCart", {title:"productCart", session: req.session.email});
+        return res.render("./products/productCart", {title:"productCart", session: req.session.user});
     },
     productDetail: (req, res) =>{
-        return res.render("./products/productDetail", {title:"productDetail", session: req.session.email});
+        return res.render("./products/productDetail", {title:"productDetail", session: req.session.user});
     },
     createProduct: (req, res) =>{
         return res.render("./products/produc", {
+            session: req.session.user,
             title:"createProduct",
             type:"create",
             box: product[0], 
@@ -50,6 +51,7 @@ const productController = {
         return res.redirect("/");
     },
     editProduct: (req, res) =>{
+        
         const idProduct = req.params.idProduct;
         const producto = product.find( p => p.id == idProduct && !p.borrado)
         if(producto){
@@ -60,7 +62,7 @@ const productController = {
                 category: category.filter( c => c.categoria == "categoria"), 
                 typeOfPets: category.filter( c => c.categoria == "tipo_mascota"),
                 actions: "/editProduct/" + idProduct + "?_method=PUT",
-                session: req.session.email
+                session: req.session.user
             });
         }else{
                 return res.render("./error/error", { title: "producto", box:  "no se encontro el producto que esta buscando", img: "sorpres.gif", session: req.session.email})
@@ -76,7 +78,7 @@ const productController = {
         if (req.body.categoria) modify.categoria = req.body.categoria;
         if (req.body.precio) modify.precio = req.body.precio;
         if (req.body.descuento) modify.descuento = req.body.descuento;
-        if (req.file) modify.img = "/img/product/" + req.file.filename
+        if (req.file) modify.img = req.file.filename
     
         fs.writeFileSync(rutaProduct, JSON.stringify(product, null, 2));
         return res.send(modify);
@@ -88,6 +90,7 @@ const productController = {
         
         if(producto){
             return res.render("./products/deleteProduct", {
+                session: req.session.user,
                 pro: producto, 
                 category: category.filter( c => c.categoria == "categoria"), 
                 typeOfPets: category.filter( c => c.categoria == "tipo_mascota"),

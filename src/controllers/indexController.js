@@ -31,13 +31,13 @@ const baseRegister = {
 
 const indexController = {
     index: (req, res) =>{
-        res.render("./users/index", {session: req.session.email, product: product, category: category.filter(p => p.categoria == "categoria"), title:"Pet House"});
+        res.render("./users/index", {session: req.session.user, product: product, category: category.filter(p => p.categoria == "categoria"), title:"Pet House"});
     },
     login: (req, res) =>{
         res.render("./users/login", {title:"Login"});
     },
     inLogin: (req, res) =>{
-
+        
         //trae las validaciones echas en la ruta
         const resultValidation = validationResult(req);
         
@@ -55,15 +55,25 @@ const indexController = {
         }else if (!bcrypt.compareSync(req.body.password, consultaBD.password)) {  // se fija si la contraseña es igual a la base de datos
             return res.render("./users/login", {title:"Login", error: {msg:"no tenemos registro"}})
         }else{ //si pasa las anteriores verificacion ingresa al sitio
-            req.session.email = consultaBD.email;
+            //se crea una session con los datos del usuario
+            req.session.user = {
+                email: consultaBD.email,
+                frist_name: consultaBD.frist_name,
+                last_name: consultaBD.last_name,
+                direction: consultaBD.direction,
+                town: consultaBD.town,
+                phone_contact: consultaBD.phone_contact,
+                type: consultaBD.type,
+            };
             
             if (req.body.recordarPasword) {
                 //se crea una cooki para guardar el usuario para poder logearse de nuevo
-                return res.cookie('email', consultaBD.email, {maxAge: 60000 *  2})
+                res.cookie('tmp', consultaBD.email, {maxAge: 60000 });
+                res.cookie("perm", consultaBD.email, {maxAge: 60000 *  2})
             }
             
             
-            return res.redirect("/")
+            return res.redirect('back');
         }
     },
 
